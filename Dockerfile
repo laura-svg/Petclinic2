@@ -11,7 +11,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Використання легкого OpenJDK для фінального контейнера
-FROM eclipse-temurin:17-jdk-jammy
+FROM eclipse-temurin:17-jdk
 
 # Встановлюємо робочу директорію
 WORKDIR /app

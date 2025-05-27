@@ -1,8 +1,10 @@
 spring:
+  server:
+    port: &{8080}
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: 1234
+    url: jdbc:postgresql://dpg-d0q7siqdbo4c73eiq3fg-a:5432/my_postgres_xa2s
+    username: my_postgres_xa2s_user
+    password: XA64T5hYWtPQhGKrE1t1akyQYo9K81z9
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
