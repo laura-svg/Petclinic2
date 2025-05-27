@@ -7,7 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Petclinic2Application {
 
     public static void main(String[] args) {
+try{
         SpringApplication.run(Petclinic2Application.class, args);
+    }
+catch(Throwable e){
+e.printStackTrace();
+}
     }
 
 }
