@@ -33,15 +33,17 @@ public class SecurityConfig {
               .authorizeHttpRequests(auth-> auth
                       // Публічні ресурси
                       .requestMatchers("/login", "/register", "/auth/**", "/css/**", "/js/**").permitAll()
+                      // HTML-інтерфейси
+                      .requestMatchers("/user/**").hasRole("USER")
+                      .requestMatchers("/admin/**").hasRole("ADMIN")
                       // ДОБАВЛЯЄМО ДОСТУП ДО КОНТРОЛЕРІВ ВЕТКЛІНІКИ:
                       .requestMatchers(HttpMethod.GET, "/pets/**", "/visits/**", "/vets/**").hasAnyRole("USER", "ADMIN")
                       .requestMatchers(HttpMethod.POST, "/pets/**", "/visits/**", "/vets/**").hasRole("ADMIN")
                       // API-запити
                       .requestMatchers("/api/user/**").hasRole("USER")
                       .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                      // HTML-інтерфейси
-                      .requestMatchers("/user/**").hasRole("USER")
-                      .requestMatchers("/admin/**").hasRole("ADMIN")
+
+
                       // все інше – автентифікація
                       .anyRequest().authenticated()
               )
